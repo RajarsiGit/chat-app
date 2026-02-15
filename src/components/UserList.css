@@ -1,0 +1,75 @@
+.user-list {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-list-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+}
+
+.user-list-title {
+  padding: 0.75rem 1.25rem 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.connected {
+  background: #4caf50;
+}
+
+.no-users {
+  padding: 1.25rem;
+  color: #999;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.user-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.user-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.user-list li:hover {
+  background: #f5f7fa;
+}
+
+.user-list li.active {
+  background: #e8f0fe;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  color: #333;
+}

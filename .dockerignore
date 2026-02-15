@@ -1,0 +1,8 @@
+node_modules
+dist
+src
+index.html
+vite.config.js
+public
+*.css
+*.md

@@ -1,0 +1,21 @@
+app = 'chat-app-server'
+primary_region = 'iad'
+
+[build]
+
+[env]
+  PORT = '3002'
+  # Set CORS_ORIGIN to your Vercel frontend URL after deploying, e.g.:
+  # CORS_ORIGIN = 'https://chat-app-xxx.vercel.app'
+
+[http_service]
+  internal_port = 3002
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = '256mb'
+  cpu_kind = 'shared'
+  cpus = 1
