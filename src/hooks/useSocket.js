@@ -5,7 +5,7 @@ function getChannelName(user1, user2) {
   return `chat:${[user1, user2].sort().join(':')}`;
 }
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3002';
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8080';
 
 export function useSocket(username) {
   const socketRef = useRef(null);

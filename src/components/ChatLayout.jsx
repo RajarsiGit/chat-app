@@ -4,7 +4,7 @@ import ChatWindow from './ChatWindow';
 import { useSocket } from '../hooks/useSocket';
 import './ChatLayout.css';
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3002';
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8080';
 
 export default function ChatLayout({ username }) {
   const { isConnected, onlineUsers, subscribe, sendMessage } = useSocket(username);
