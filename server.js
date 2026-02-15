@@ -6,11 +6,12 @@ import cors from 'cors';
 const app = express();
 const httpServer = createServer(app);
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:5173';
+const allowedOrigins = CORS_ORIGIN === '*' ? '*' : CORS_ORIGIN.split(',');
 const io = new Server(httpServer, {
-  cors: { origin: CORS_ORIGIN.split(',') },
+  cors: { origin: allowedOrigins, methods: ['GET', 'POST'] },
 });
 
-app.use(cors({ origin: CORS_ORIGIN.split(',') }));
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 // In-memory store
@@ -20,6 +21,10 @@ const messages = []; // { from, to, text, timestamp }
 function getChannelName(user1, user2) {
   return `chat:${[user1, user2].sort().join(':')}`;
 }
+
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, users: getOnlineUserList() });
+});
 
 // REST: get message history
 app.get('/api/messages', (req, res) => {
